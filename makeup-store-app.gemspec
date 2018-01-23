@@ -1,17 +1,16 @@
 
 lib = File.expand_path("../lib", __FILE__)
 $LOAD_PATH.unshift(lib) unless $LOAD_PATH.include?(lib)
-require "makeup/store/app/version"
+require "makeup-store/app/version"
 
 Gem::Specification.new do |spec|
   spec.name          = "makeup-store-app"
-  spec.version       = Makeup::Store::App::VERSION
+  spec.version       = MakeupStore::App::VERSION
   spec.authors       = ["jessmitch42"]
   spec.email         = ["jessicamitch42@gmail.com"]
 
-  spec.summary       = %q{TODO: Write a short summary, because RubyGems requires one.}
-  spec.description   = %q{TODO: Write a longer description or delete this line.}
-  spec.homepage      = "TODO: Put your gem's website or public repo URL here."
+  spec.summary       = "flatiron project"
+  spec.homepage      = "https://github.com/jessmitch42/makeup-store-app"
   spec.license       = "MIT"
 
   # Prevent pushing this gem to RubyGems.org. To allow pushes either set the 'allowed_push_host'
