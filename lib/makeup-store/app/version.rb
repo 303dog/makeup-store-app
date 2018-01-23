@@ -1,7 +1,5 @@
-module Makeup
-  module Store
-    module App
-      VERSION = "0.1.0"
-    end
+module MakeupStore
+  module App
+    VERSION = "0.1.0"
   end
 end
