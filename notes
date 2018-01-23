@@ -1,0 +1,43 @@
+Makeup store app:
+
+Classes:
+User
+Makeup
+Cart
+
+Relationships:
+User has one cart
+products belongs to a cart
+cart belongs to a user
+cart has many products
+
+Tables:
+user
+  id
+  name
+  email
+  password_digest
+  cart_id*
+products
+  id
+  name
+  cost
+  description
+  ingredients
+cart
+  id
+  user_id
+  product_id
+  quantity
+  timestamp
+
+Actions:
+user can create account
+user can login
+user can logout
+user can browse products (show all makeup)
+view individual product
+user can view single cart
+user can add product to cart
+delete product from cart
+edit quantity in cart
