@@ -5,7 +5,7 @@
   <% @products.each.with_index(1) do |p, i| %>
   <a href="/products/<%= p.slug %>">
     <div class="main-page__product-container">
-      <img class="main-page__prod--img" src="img/<%= p.img %>" alt="<%= p.name %>-<%= p.category %> ">
+      <img class="main-page__prod--img" src="/img/<%= p.img %>" alt="<%= p.name %>-<%= p.category %> ">
       <div class="main-page__prod--content">
         <p><%= p.brand %> <%= p.category.capitalize%>: <%= p.name %> </p>
         <p><b>$<%= p.cost %></b></p>

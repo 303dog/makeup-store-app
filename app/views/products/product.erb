@@ -1,7 +1,7 @@
 <a href="/products">Back to Main Page</a>
 <h2><%= @product.brand %> <%= @product.category.capitalize%>: <%= @product.name %></h2>
 <div class="main-page__product-container">
-  <img class="main-page__prod--img" src="img/<%= @product.img %>" alt="<%= @product.name %>-<%= @product.category %> ">
+  <img class="main-page__prod--img" src="/img/<%= @product.img %>" alt="<%= @product.name %>-<%= @product.category %> ">
   <div class="main-page__prod--content">
     <p><%= @product.brand %> <%= @product.category.capitalize%>: <%= @product.name %> </p>
     <p><b>$<%= @product.cost %></b></p>
