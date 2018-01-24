@@ -20,11 +20,11 @@ user
   cart_id*
 products
   id
-  name
+  name # rubywoo
   cost
-  type
+  brand
+  type #lipstick, eyeshadow
   description
-  ingredients
 cart
   id
   user_id
