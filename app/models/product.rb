@@ -3,7 +3,7 @@ class Product < ActiveRecord::Base
   belongs_to :cart
 
   def slug
-    "#{self.name.gsub(' ', '-').downcase}-#{self.name.gsub(' ', '-').downcase}"
+    "#{self.brand.gsub(' ', '-').downcase}-#{self.name.gsub(' ', '-').downcase}"
   end
 
   def self.find_by_slug(slug)

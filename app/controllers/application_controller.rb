@@ -12,4 +12,8 @@ class ApplicationController < Sinatra::Base
     erb :error
   end
 
+  get '/' do
+    redirect '/products'
+  end
+
 end
