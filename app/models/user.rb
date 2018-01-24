@@ -1,4 +1,4 @@
-class User < ActiveRecord:Base
+class User < ActiveRecord::Base
   #User has one cart
   has_one :cart
 end

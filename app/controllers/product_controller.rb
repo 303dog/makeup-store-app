@@ -1,8 +1,9 @@
 class ProductsController < ApplicationController
 
   # **** ALL PRODUCTS / LANDING PAGE **** Viewable without account
-  get '/' do
-    erb :'products/products'
+  get '/products' do
+    @products = Product.all
+    erb :'products/show_all'
   end
 
 end

@@ -1,4 +1,4 @@
-class Cart < ActiveRecord:Base
+class Cart < ActiveRecord::Base
   # cart belongs to a user
   # cart has many products
   belongs_to :user
