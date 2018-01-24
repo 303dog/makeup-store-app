@@ -1,12 +1,10 @@
 require 'bundler/setup'
 Bundler.require
+require_all './lib/makeup-store/app'
 
 ActiveRecord::Base.establish_connection(
   :adapter => "sqlite3",
-  :database => "db/nyc#{ENV['SINATRA_ENV']}.sqlite"
+  :database => "db/development.sqlite"
 )
 
 require_relative "../lib/makeup-store/app/controllers/application_controller.rb"
-
-Dir[File.join(File.dirname(__FILE__), "../app/models", "*.rb")].each {|f| require f}
-Dir[File.join(File.dirname(__FILE__), "../app/controllers", "*.rb")].sort.each {|f| require f}

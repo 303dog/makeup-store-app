@@ -22,6 +22,7 @@ products
   id
   name
   cost
+  type
   description
   ingredients
 cart
@@ -36,6 +37,7 @@ user can create account
 user can login
 user can logout
 user can browse products (show all makeup)
+user can browse products by type
 view individual product
 user can view single cart
 user can add product to cart
