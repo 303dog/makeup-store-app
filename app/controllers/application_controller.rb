@@ -51,8 +51,7 @@ class ApplicationController < Sinatra::Base
 
     if @order.save
       # delete the cart associated to this order/user
-      binding.pry
-      Cart.where(user_id: @user.id).delete
+      Cart.where(user_id: @user.id).each{|c| c.delete}
       erb :'orders/orders'
     else
       redirect '/cart'

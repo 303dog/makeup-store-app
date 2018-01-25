@@ -51,7 +51,7 @@
 
     <% total = total + (p.unit_cost * c.quantity) %>
   <% end%>
-  <h2 class="cart-total">$Total: <%= total %></h2>
+  <h2 class="cart-total">Total: $<%= total %></h2>
   <form action="/order" method="post">
     <input type="hidden" name="order[user_id]" value="<%= @user.id %>">
     <input type="hidden" name="order[total]" value="<%= total %>">

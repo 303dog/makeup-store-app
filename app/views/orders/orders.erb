@@ -1,8 +1,9 @@
 <a href="/products"><p>Back to Main Page</p> </a>
 
 <div class="main__product-container cart-container order-form">
-  <h3>Congrats, <%= @user %>! Your order has been received!</h3>
-  <h4>You can expect a fake charge of $<%= @order.total %> on nothing because we didn't ask for any form of payment. ¯\_(ツ)_/¯</h4>
-  <h4>Thanks for shopping with us!!</h4>
+  <h2>Congrats, <%= @user.name %>! Your order has been received!</h2>
+  <h3>Total: $<%= @order.total %></h3>
+  <h3>You can expect a fake charge on nothing because we didn't ask for any form of payment. ¯\_(ツ)_/¯</h3>
+  <h3>Thanks for shopping with us!!</h3>
 
 </div>
