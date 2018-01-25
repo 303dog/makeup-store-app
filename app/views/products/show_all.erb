@@ -9,7 +9,6 @@
       <div class="main__prod--content">
         <p><%= p.brand %> <%= p.category.capitalize%>: <%= p.name %> </p>
         <p><b>$<%= p.cost %></b></p>
-        <p><%= p.description %></p>
         <form action="add_product" method="post">
           <input type="submit" name="submit" value="Add to Cart">
         </form>
