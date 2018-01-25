@@ -1,0 +1,170 @@
+/* ***** GENERAL STUFF ***** */
+html {
+  font-family: 'Work Sans', sans-serif;
+  background-color: #FCF1ED;
+}
+a {
+  text-decoration: none;
+}
+
+a:link, a:visited {
+  color: #520000;
+}
+
+a:hover {
+  color: #cc8484;
+}
+
+a:active {
+  color: #1b1817;
+}
+
+form > input[type=submit] {
+  justify-self: end;
+}
+
+input[type=submit] {
+  border: 2px solid #520000;
+  -webkit-border-radius: 5px;
+  border-radius: 5px;
+  font-size: 16px;
+  margin: 15px 0 0;
+  color: white;
+  background-color: #cc8484;
+  cursor: pointer;
+}
+
+.error {
+  color: #eb2027;
+  font-weight: bold;
+}
+
+.footer {
+  width: 100%;
+  margin-top: 40px;
+  background-color: #520000;
+  padding: 60px;
+  color: white;
+  /* position: absolute;
+  bottom: 0px; */
+}
+
+.header__title {
+  border-bottom: 4px solid black;
+  color: black;
+}
+
+.wrapper {
+  max-width: 75%;
+  margin: auto;
+  min-height: 700px;
+}
+
+.float-right {
+  float: right;
+}
+
+form p {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+}
+
+form input[name=signup] {
+  float: right
+}
+
+/* MAIN PAGE */
+.main__container {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(250px, 1fr));
+  grid-gap: 20px;
+  grid-auto-rows: 1fr;
+}
+
+.main__product-container {
+  padding: 10px 30px 30px 30px;
+  border: 3px solid #675f5f;
+  box-shadow: 5px 5px 10px #675f5f;
+  background-color: white;
+  display: grid;
+}
+
+.ind__product-container {
+  max-width: 55%;
+  margin: auto;
+}
+
+.cart-container {
+  max-width: 75%;
+  margin: auto;
+}
+
+.main__prod--img {
+  height: 250px;
+  justify-self: center;
+}
+
+.main__prod--content {
+  padding-top: 10px;
+  display: grid;
+}
+
+.main__prod--content form {
+  justify-self: end;
+}
+
+.main__prod--content p {
+  margin: 5px 0;
+}
+
+.main__product-container input[type=submit], .ind__product-container.account-form input[type=submit] {
+    padding: 10px;
+}
+
+.ind__product-container input[type=submit] {
+    padding: 17px;
+}
+
+.ind__product-container.account-form, .ind__product-container.cart-form, .ind__product-container.order-form {
+  padding: 40px 60px 50px 60px;
+  margin-top: 45px;
+  margin-bottom: 65px
+}
+
+ /* CART */
+
+p.cart__container {
+  font-weight: bold;
+  border-bottom: 3px solid black;
+}
+
+.cart__container {
+  display: grid;
+  grid-template-columns: repeat(3,2fr) 1fr 1fr;
+}
+
+div.cart__container span {
+  line-height: 30px;
+}
+
+input#increase.cart-edit__btn,
+input#decrease.cart-edit__btn {
+  background-color: white;
+  color: black;
+  border: none;
+  font-size: 24px;
+  padding: 0;
+  margin: 0;
+}
+
+.edit-form {
+  display: flex;
+  align-items: center;
+}
+.edit-form form {
+  align-self: center;
+}
+
+.cart-total {
+  justify-self: end;
+}
