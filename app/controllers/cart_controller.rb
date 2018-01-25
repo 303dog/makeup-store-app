@@ -2,7 +2,6 @@ class CartsController < ApplicationController
 
   get '/cart' do
     redirect_if_logged_out(session)
-    # binding.pry
     @user = User.find(session[:user_id])
     @cart_products = Cart.where(user_id: @user.id)
 
@@ -10,8 +9,13 @@ class CartsController < ApplicationController
   end
 
   post '/add_product' do
-    Cart.create(params[:cart])
-    redirect '/cart'
+    # binding.pry
+    c = Cart.new(params[:cart])
+    if c.save
+      redirect '/cart'
+    else
+      redirect '/products'
+    end
   end
 
   post '/increase' do #edit
@@ -23,6 +27,12 @@ class CartsController < ApplicationController
   post '/decrease' do #edit
     cart = Cart.find_by(user_id: params[:cart][:user_id], product_id: params[:cart][:product_id])
     cart.update(quantity: params[:cart][:quantity])
+    redirect '/cart'
+  end
+
+  post '/delete' do #edit
+    cart = Cart.find_by(user_id: params[:cart][:user_id], product_id: params[:cart][:product_id])
+    cart.delete
     redirect '/cart'
   end
 
