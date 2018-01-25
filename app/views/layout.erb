@@ -3,12 +3,23 @@
   <head>
     <meta charset="utf-8">
     <title>Ruby Makeup</title>
+    <script src="https://use.fontawesome.com/e3b6624313.js"></script>
     <link href="https://fonts.googleapis.com/css?family=Bitter|Work+Sans" rel="stylesheet">
     <link rel="stylesheet" href="/css/styles.css" type="text/css"/>
   </head>
   <body>
     <div class="wrapper">
       <header class="header__title">
+        <div class="float-right">
+          <% if !logged_in?(session) %>
+            <a href="/signup">Sign Up</a> /
+            <a href="/login">Login</a>
+          <% else %>
+            <a href="/logout">Log Out</a>
+          <% end %>
+          -
+          <a href="/cart">Cart</a> <i class="fa fa-shopping-cart" aria-hidden="true"></i>
+        </div>
         <a href="/products"><h1>Ruby Makeup</h1></a>
       </header>
       <%= yield %>
