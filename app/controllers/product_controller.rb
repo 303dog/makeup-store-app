@@ -29,6 +29,9 @@ class ProductsController < ApplicationController
 
   # ***** PRODUCT VIEW *****
   get '/products/:slug' do
+    # binding.pry
+    redirect_if_logged_out(session)
+    @user = User.find(session[:user_id])
     @product = Product.find_by_slug(params[:slug])
 
     erb :'products/product'

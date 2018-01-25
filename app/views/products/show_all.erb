@@ -9,10 +9,15 @@
       <div class="main__prod--content">
         <p><%= p.brand %> <%= p.category.capitalize%></p>
         <p><%= p.name %></p>
-        <p><b>$<%= p.cost %></b></p>
-        <form action="add_product" method="post">
+        <p><b>$<%= p.unit_cost %></b></p>
+      <% if !User.where(id: session[:user_id]).empty? %>
+        <form action="/add_product" method="post">
+          <input type="hidden" name="cart[product_id]" value="<%= p.name %>">
+          <input type="hidden" name="cart[user_id]" value="<% session[:user_id] %>">
+          <input type="hidden" name="cart[quantity]" value="1">
           <input type="submit" name="submit" value="Add to Cart">
         </form>
+      <% end %>
       </div>
     </div>
   </a>

@@ -1,0 +1,26 @@
+<a href="/products"><p>Back to Main Page</p> </a>
+
+<div class="main__product-container ind__product-container cart-form">
+  <%if flash.has?(:message)%>
+    <div class="error"><%=flash[:message]%></div>
+  <%end%>
+  <h2>Your Shopping Cart</h2>
+  <h4>Hey, <%=@user.name%>! Let's check out what you've got so far:</h4>
+
+  <% @cart_products.each.with_index(1) do |c,i| %>
+    <div class="cart__container">
+      <% p = Product.find(c.product_id)%>
+      <span><%= i %>. </span>
+      <span><%= p.brand %> - </span>
+      <span><%= p.category %> - </span>
+      <span><%= p.name %> - </span>
+      <span>$<%= p.unit_cost %></span>
+      <span>Quantity: <%= c.quantity %> </span>
+    </div>
+  <% end%>
+
+  <form action="/order" method="post">
+    <input type="submit" name="signup" value="Submit">
+
+  </form>
+</div>

@@ -4,12 +4,15 @@ Classes:
 User
 Makeup
 Cart
+Order
 
 Relationships:
 User has one cart
 products belongs to a cart
-cart belongs to a user
+cart belongs to a user (READ, UPDATE, DELETE)
 cart has many products
+User has many orders
+order belongs to user (CREATE)
 
 Tables:
 user
@@ -21,9 +24,10 @@ user
 products
   id
   name # rubywoo
-  cost
+  unit_cost
   brand
-  type #lipstick, eyeshadow
+  img
+  category #lipstick, eyeshadow
   description
 cart
   id
@@ -31,14 +35,21 @@ cart
   product_id
   quantity
   timestamp
+orders
+  id
+  user_id
+  order_date
+  total
+  timestamp
+
 
 Actions:
 user can create account
 user can login
 user can logout
-user can browse products (show all makeup)
-user can browse products by type
-view individual product
+  user can browse products (show all makeup)
+  user can browse products by category
+  view individual product
 user can view single cart
 user can add product to cart
 delete product from cart

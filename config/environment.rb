@@ -1,10 +1,11 @@
 require 'bundler/setup'
 Bundler.require
-require_all './lib/makeup-store/app'
+require_all './app'
+require_all './public/css'
 
 ActiveRecord::Base.establish_connection(
   :adapter => "sqlite3",
   :database => "db/development.sqlite"
 )
 
-require_relative "../lib/makeup-store/app/controllers/application_controller.rb"
+require_relative "../app/controllers/application_controller.rb"

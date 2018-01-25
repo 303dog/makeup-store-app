@@ -6,9 +6,12 @@
   <div class="main__prod--content">
     <p><%= @product.brand %> <%= @product.category.capitalize%> </p>
     <p><%= @product.name %></p>
-    <p><b>$<%= @product.cost %></b></p>
+    <p><b>$<%= @product.unit_cost %></b></p>
     <p><%= @product.description %></p>
-    <form action="add_product" method="post">
+    <form action="/add_product" method="post">
+      <input type="hidden" name="cart[product_id]" value="<%= @product.id %>">
+      <input type="hidden" name="cart[user_id]" value="<%= @user.id%>">
+      <input type="hidden" name="cart[quantity]" value="1">
       <input type="submit" name="submit" value="Add to Cart">
     </form>
   </div>
