@@ -2,6 +2,9 @@
 
 <div class="main__product-container ind__product-container account-form">
   <h3>You know the drill:</h3>
+  <%if flash.has?(:message)%>
+    <div class="error"><%=flash[:message]%></div>
+  <%end%>
   <form action="login" method="post">
     <p>
       <label for="user[email]">Email:</label>

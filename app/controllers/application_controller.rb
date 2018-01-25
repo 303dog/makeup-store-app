@@ -1,4 +1,7 @@
+require 'rack-flash'
+
 class ApplicationController < Sinatra::Base
+  use Rack::Flash
 
   configure do
     set :public_folder, 'public'
@@ -69,6 +72,7 @@ class ApplicationController < Sinatra::Base
 
   post '/login' do
     if empty_fields?(params[:user])
+      flash[:message] = "Umm.. Please fill out the form before submitting.."
       redirect '/login'
     else
       user = User.find_by(email: params[:user][:email])
@@ -77,6 +81,7 @@ class ApplicationController < Sinatra::Base
         session[:user_id] = user.id
         redirect '/products'
       else
+        flash[:message] = "Wrong password or email. Please try again!"
         redirect '/login'
       end
     end
