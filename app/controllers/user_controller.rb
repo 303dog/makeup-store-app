@@ -1,3 +1,54 @@
 class UsersController < ApplicationController
 
+  get '/signup' do
+    redirect_if_logged_in(session)
+
+    erb :'users/signup'
+  end
+
+  post '/signup' do
+    if empty_fields?(params[:user])
+      redirect '/signup'
+    else
+      # binding.pry
+      user = User.new(params[:user])
+
+      if user.save
+        session[:user_id] = user.id
+        redirect '/products'
+      else
+        redirect '/whoops'
+      end
+    end
+  end
+
+  get '/login' do
+    redirect_if_logged_in(session)
+
+    erb :'users/login'
+  end
+
+  post '/login' do
+    if empty_fields?(params[:user])
+      flash[:message] = "Umm.. Please fill out the form before submitting.."
+      redirect '/login'
+    else
+      user = User.find_by(email: params[:user][:email])
+
+      if user && user.authenticate(params[:user][:password])
+        session[:user_id] = user.id
+        redirect '/products'
+      else
+        flash[:message] = "Wrong password or email. Please try again!"
+        redirect '/login'
+      end
+    end
+  end
+
+  get '/logout' do
+    redirect_if_logged_out(session)
+    session.clear
+    redirect '/products'
+  end
+
 end
