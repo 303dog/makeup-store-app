@@ -38,7 +38,6 @@ cart
 orders
   id
   user_id
-  order_date
   total
   timestamp
 

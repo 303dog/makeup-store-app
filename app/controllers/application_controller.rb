@@ -43,5 +43,20 @@ class ApplicationController < Sinatra::Base
     redirect '/products'
   end
 
+  # CREATE ORDER
+
+  post '/order' do
+    @order = Order.new(params[:order])
+    @user = User.find(@order.user_id)
+
+    if @order.save
+      # delete the cart associated to this order/user
+      binding.pry
+      Cart.where(user_id: @user.id).delete
+      erb :'orders/orders'
+    else
+      redirect '/cart'
+    end
+  end
 
 end
