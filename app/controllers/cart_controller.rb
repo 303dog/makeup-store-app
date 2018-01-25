@@ -13,4 +13,16 @@ class CartsController < ApplicationController
     redirect '/cart'
   end
 
+  post '/increase' do #edit
+    cart = Cart.find_by(user_id: params[:cart][:user_id], product_id: params[:cart][:product_id])
+    cart.update(quantity: user_id: params[:cart][:quantity])
+    redirect '/cart'
+  end
+
+  post '/decrease' do #edit
+    cart = Cart.find_by(user_id: params[:cart][:user_id], product_id: params[:cart][:product_id])
+    cart.update(quantity: user_id: params[:cart][:quantity])
+    redirect '/cart'
+  end
+
 end

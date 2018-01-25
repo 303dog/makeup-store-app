@@ -1,21 +1,45 @@
 <a href="/products"><p>Back to Main Page</p> </a>
 
-<div class="main__product-container ind__product-container cart-form">
+<div class="main__product-container cart-container cart-form">
   <%if flash.has?(:message)%>
     <div class="error"><%=flash[:message]%></div>
   <%end%>
   <h2>Your Shopping Cart</h2>
   <h4>Hey, <%=@user.name%>! Let's check out what you've got so far:</h4>
 
-  <% @cart_products.each.with_index(1) do |c,i| %>
+  <p class="cart__container">
+    <span>Brand</span>
+    <span>Category</span>
+    <span>Name</span>
+    <span>Cost</span>
+    <span>Quantity</span>
+  </p>
+  <% @cart_products.each do |c| %>
     <div class="cart__container">
       <% p = Product.find(c.product_id)%>
-      <span><%= i %>. </span>
-      <span><%= p.brand %> - </span>
-      <span><%= p.category %> - </span>
-      <span><%= p.name %> - </span>
+      <span><%= p.brand %> </span>
+      <span><%= p.category.capitalize %> </span>
+      <span><%= p.name %> </span>
       <span>$<%= p.unit_cost %></span>
-      <span>Quantity: <%= c.quantity %> </span>
+
+      <div class="edit-form">
+        <form action="/increase" method="post">
+          <input type="hidden" name="cart[user_id]" value="<%= c.user_id %>">
+          <input type="hidden" name="cart[product_id]" value="<%= c.product_id %>">
+          <input type="hidden" name="cart[quantity]" value="<%= c.quantity + 1 %>">
+          <input id="increase" class="cart-edit__btn" type="submit" name="submit" value=" + ">
+        </form>
+
+        <span> <%= c.quantity %> </span>
+
+        <form action="/decrease" method="post">
+          <input type="hidden" name="cart[user_id]" value="<%= c.user_id %>">
+          <input type="hidden" name="cart[product_id]" value="<%= c.product_id %>">
+          <input type="hidden" name="cart[quantity]" value="<%= c.quantity - 1 %>">
+          <input id="decrease" class="cart-edit__btn" type="submit" name="submit" value=" - ">
+        </form>
+      </div>
+
     </div>
   <% end%>
 
