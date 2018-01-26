@@ -14,7 +14,7 @@ The requirements of this app were to:
 # Extra info you might be interested in
 
 ## Landing Page
-The landing page is viewable logged in or out. If a user is not logged in, the "Add to Cart" buttons don't render and the header says "Sign In / Login". If the user is logged in, the header will have a log out option and a link to their cart. The header behaves this way on every page to avoid users accessing the cart before signing in. If the user tries to access routes that are not directly accessible through the page and for which they don't have access rights, they will be redirected to the main page again.
+The landing page is viewable logged in or out. If a user is not logged in, the "Add to Cart" buttons don't render and the header says "Sign In / Login". If the user is logged in, the header will have a log out option and a link to their cart. The header behaves this way on every page to avoid users accessing the cart before signing in. If the user tries to access routes that are not directly accessible through the page and for which they don't have access rights, they will be redirected to the main page again. The main product page can also be sorted by product category. This is to make browsing more enjoyable and faster, of course!
 <img src="./public/img/Ruby Makeup Landing Page.png" />
 
 
@@ -29,7 +29,7 @@ Products can only be viewed individually when the user has logged in. The produc
 
 
 ## Cart
-A user only ever has one cart. Either it's the one they're currently shopping with or it's deleted when the order is submitted. The thinking here was that if this were a real site I would want to cart to persist until the user made an order, and once the order is created the order will track all the cart info. Deleting a product from the cart deletes the associated row from the "cart" table. Updating the product quantity will edit the quantity value in the associated cart row.
+A user only ever has one cart. Either it's the one they're currently shopping with or it's deleted when the order is submitted. The thinking here was that if this were a real site I would want to cart to persist until the user made an order, and once the order is created the order will track all the cart info. Deleting a product from the cart deletes the associated row from the "cart" table. Updating the product quantity will edit the quantity value in the associated cart row. In terms of security, the users can only access their own cart, of which there is only ever one. 
 <img src="./public/img/Ruby-Makeup-Cart.png" />
 
 
