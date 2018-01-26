@@ -57,7 +57,7 @@ input[type=submit] {
 .wrapper {
   max-width: 75%;
   margin: auto;
-  min-height: 700px;
+  min-height: 500px;
 }
 
 .float-right {
