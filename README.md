@@ -11,7 +11,7 @@ The requirements of this app were to:
 - have users (sure do!)
 - ensure that the belongs_to resource has routes for Creating, Reading, Updating and Destroying (read, update, delete in the Cart and create Orders)
 
-# Extra info you might miss
+# Extra info you might be interested in
 
 ## Landing Page
 The landing page is viewable logged in or out. If a user is not logged in, the "Add to Cart" buttons don't render and the header says "Sign In / Login". If the user is logged in, the header will have a log out option and a link to their cart. The header behaves this way on every page to avoid users accessing the cart before signing in. If the user tries to access routes that are not directly accessible through the page and for which they don't have access rights, they will be redirected to the main page again.
@@ -38,4 +38,4 @@ Currently the cart goes directly to the order page and just let's the user know 
 <img src="./public/img/Ruby Makeup Order.png" />
 
 # Styling
-I could spend a LOT of time on this but I decided to keep it simple and not get too distracted by buttons and alignments. Most of the alignment is done with CSS Grid. 
+I could spend a LOT of time on this but I decided to keep it simple and not get too distracted by buttons and alignments. Most of the alignment is done with CSS Grid.
