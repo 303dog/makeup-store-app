@@ -20,7 +20,7 @@ The landing page is viewable logged in or out. If a user is not logged in, the "
 
 ## Authentication
 User's must provide a first name, email, and password to sign up. The password is stored encrypted. All fields on the sign up and log in page are required and the page will display an error if they are submitted empty. If the password is incorrect while loggin in, an error message will display on the login page. The page will redirect to the main products page after logging in and logging it. If you try to logout while not logged it, you'll be redirected to the login page (and stop trying to break my app because there's no logout button if you're not logged in.)
-<img src="./public/img/Ruby Makeup Error.png" />
+<img src="./public/img/Ruby-Makeup-Error.png" />
 
 
 ## Individual Products
@@ -30,7 +30,7 @@ Products can only be viewed individually when the user has logged in. The produc
 
 ## Cart
 A user only ever has one cart. Either it's the one they're currently shopping with or it's deleted when the order is submitted. The thinking here was that if this were a real site I would want to cart to persist until the user made an order, and once the order is created the order will track all the cart info. Deleting a product from the cart deletes the associated row from the "cart" table. Updating the product quantity will edit the quantity value in the associated cart row.
-<img src="./public/img/Ruby Makeup Cart.png" />
+<img src="./public/img/Ruby-Makeup-Cart.png" />
 
 
 # Orders
