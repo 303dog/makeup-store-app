@@ -2,6 +2,10 @@
 
 <div class="main__product-container ind__product-container account-form">
   <h3>Please fill out the form below to sign up and start shopping.</h3>
+  <%if flash.has?(:message)%>
+    <div class="error"><%=flash[:message]%></div>
+  <%end%>
+
   <form action="signup" method="post">
     <p>
       <label for="user[name]">First Name:</label>
@@ -16,6 +20,6 @@
       <input type="password" name="user[password]">
     </p>
     <input type="submit" name="signup" value="Submit">
-
   </form>
+
 </div>

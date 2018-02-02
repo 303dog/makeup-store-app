@@ -9,7 +9,6 @@ class CartsController < ApplicationController
   end
 
   post '/add_product' do
-    # binding.pry
     c = Cart.new(params[:cart])
     if c.save
       redirect '/cart'
@@ -30,7 +29,7 @@ class CartsController < ApplicationController
     redirect '/cart'
   end
 
-  post '/delete' do #edit
+  post '/delete' do
     cart = Cart.find_by(user_id: params[:cart][:user_id], product_id: params[:cart][:product_id])
     cart.delete
     redirect '/cart'

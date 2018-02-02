@@ -7,17 +7,22 @@ class UsersController < ApplicationController
   end
 
   post '/signup' do
-    if empty_fields?(params[:user])
+    user = User.where(email: params[:user][:email])
+    if !user.empty?
+      flash[:message] = "This email is already taken. Please pick a new one or log in."
+      redirect '/signup'
+    elsif empty_fields?(params[:user])
+      flash[:message] = "Please fill out the form."
       redirect '/signup'
     else
-      # binding.pry
       user = User.new(params[:user])
 
       if user.save
         session[:user_id] = user.id
         redirect '/products'
       else
-        redirect '/whoops'
+        flash[:message] = "Whoops! Something went wrong. Please try again!"
+        redirect '/signup'
       end
     end
   end
