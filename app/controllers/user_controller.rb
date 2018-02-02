@@ -8,9 +8,11 @@ class UsersController < ApplicationController
 
   post '/signup' do
     user = User.where(email: params[:user][:email])
+    # user email must be unique?
     if !user.empty?
       flash[:message] = "This email is already taken. Please pick a new one or log in."
       redirect '/signup'
+    # fields cannot be empty
     elsif empty_fields?(params[:user])
       flash[:message] = "Please fill out the form."
       redirect '/signup'
