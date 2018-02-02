@@ -1,11 +1,10 @@
 class UsersController < ApplicationController
 
   get '/signup' do
-    binding.pry
     redirect_if_logged_in(session)
-
     erb :'users/signup'
   end
+
 
   post '/signup' do
     user = User.where(email: params[:user][:email])
@@ -30,11 +29,12 @@ class UsersController < ApplicationController
     end
   end
 
+
   get '/login' do
     redirect_if_logged_in(session)
-
     erb :'users/login'
   end
+
 
   post '/login' do
     if empty_fields?(params[:user])
@@ -52,6 +52,7 @@ class UsersController < ApplicationController
       end
     end
   end
+
 
   get '/logout' do
     redirect_if_logged_out(session)

@@ -10,20 +10,17 @@ class CartsController < ApplicationController
 
   post '/add_product' do
     c = Cart.new(params[:cart])
-    if c.save
+    # binding.pry
+
+    if session[:user_id] == params[:cart][:user_id].to_i && c.save
       redirect '/cart'
     else
       redirect '/products'
     end
+
   end
 
-  post '/increase' do #edit
-    cart = Cart.find_by(user_id: params[:cart][:user_id], product_id: params[:cart][:product_id])
-    cart.update(quantity: params[:cart][:quantity])
-    redirect '/cart'
-  end
-
-  post '/decrease' do #edit
+  post '/cart/edit_quantity' do #edit
     cart = Cart.find_by(user_id: params[:cart][:user_id], product_id: params[:cart][:product_id])
     cart.update(quantity: params[:cart][:quantity])
     redirect '/cart'

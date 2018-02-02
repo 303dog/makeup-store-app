@@ -34,7 +34,7 @@ class ApplicationController < Sinatra::Base
     hash.values.any? {|x| x.nil? || x.empty?}
   end
 
-  # **** ERROR MSG ****
+  # ERROR MSG 
   get '/whoops' do
     erb :error
   end
