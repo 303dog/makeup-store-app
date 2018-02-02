@@ -1,6 +1,7 @@
 class UsersController < ApplicationController
 
   get '/signup' do
+    binding.pry
     redirect_if_logged_in(session)
 
     erb :'users/signup'
