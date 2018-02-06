@@ -1,6 +1,8 @@
 source "https://rubygems.org"
 
-gem 'sqlite3'
+group :development do
+  gem 'sqlite3'
+end
 gem 'activerecord', :require => 'active_record'
 gem 'sinatra-activerecord', :require => 'sinatra/activerecord'
 gem 'sinatra'
@@ -15,7 +17,7 @@ gem 'rack-test'
 gem 'capybara'
 gem 'require_all'
 gem 'rack-flash3'
-
+gem 'pg', '1.0.0'
 
 git_source(:github) {|repo_name| "https://github.com/#{repo_name}" }
 
