@@ -3,6 +3,7 @@ source "https://rubygems.org"
 group :development do
   gem 'sqlite3'
 end
+
 gem 'activerecord', :require => 'active_record'
 gem 'sinatra-activerecord', :require => 'sinatra/activerecord'
 gem 'sinatra'
