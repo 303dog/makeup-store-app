@@ -34,7 +34,7 @@ class ApplicationController < Sinatra::Base
     hash.values.any? {|x| x.nil? || x.empty?}
   end
 
-  # ERROR MSG 
+  # ERROR MSG
   get '/whoops' do
     erb :error
   end
@@ -51,7 +51,7 @@ class ApplicationController < Sinatra::Base
 
     if @order.save
       # delete the cart associated to this order/user
-      Cart.where(user_id: @user.id).each{|c| c.delete}
+      CartItem.where(user_id: @user.id).each{|c| c.delete}
       erb :'orders/orders'
     else
       redirect '/cart'

@@ -7,5 +7,5 @@ end
 
 use UsersController
 use ProductsController
-use CartsController
+use CartItemsController
 run ApplicationController

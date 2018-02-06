@@ -3,13 +3,13 @@ class CartItemsController < ApplicationController
   get '/cart' do
     redirect_if_logged_out(session)
     @user = User.find(session[:user_id])
-    @cart_products = Cart.where(user_id: @user.id)
+    @cart_products = CartItem.where(user_id: @user.id)
 
     erb :'carts/cart'
   end
 
   post '/add_product' do
-    c = Cart.new(params[:cart])
+    c = CartItem.new(params[:cart])
     # binding.pry
 
     if session[:user_id] == params[:cart][:user_id].to_i && c.save
@@ -21,14 +21,14 @@ class CartItemsController < ApplicationController
   end
 
   post '/cart/edit_quantity' do #edit
-    cart = Cart.find_by(user_id: params[:cart][:user_id], product_id: params[:cart][:product_id])
-    cart.update(quantity: params[:cart][:quantity])
+    cart_item = CartItem.find_by(user_id: params[:cart][:user_id], product_id: params[:cart][:product_id])
+    cart_item.update(quantity: params[:cart][:quantity])
     redirect '/cart'
   end
 
   post '/delete' do
-    cart = Cart.find_by(user_id: params[:cart][:user_id], product_id: params[:cart][:product_id])
-    cart.delete
+    cart_item = CartItem.find_by(user_id: params[:cart][:user_id], product_id: params[:cart][:product_id])
+    cart_item.delete
     redirect '/cart'
   end
 
