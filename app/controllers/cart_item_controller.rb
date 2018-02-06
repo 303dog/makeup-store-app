@@ -1,4 +1,4 @@
-class CartsController < ApplicationController
+class CartItemsController < ApplicationController
 
   get '/cart' do
     redirect_if_logged_out(session)
