@@ -28,8 +28,8 @@
         <form action="/cart/edit_quantity" method="post">
           <input type="hidden" name="cart[user_id]" value="<%= c.user_id %>">
           <input type="hidden" name="cart[product_id]" value="<%= c.product_id %>">
-          <input type="hidden" name="cart[quantity]" value="<%= c.quantity + 1 %>">
-          <input id="increase" class="cart-edit__btn" type="submit" name="submit" value=" + ">
+          <input type="hidden" name="cart[quantity]" value="<%= c.quantity - 1 %>">
+          <input id="decrease" class="cart-edit__btn" type="submit" name="submit" value=" - ">
         </form>
 
         <span> <%= c.quantity %> </span>
@@ -37,9 +37,10 @@
         <form action="/cart/edit_quantity" method="post">
           <input type="hidden" name="cart[user_id]" value="<%= c.user_id %>">
           <input type="hidden" name="cart[product_id]" value="<%= c.product_id %>">
-          <input type="hidden" name="cart[quantity]" value="<%= c.quantity - 1 %>">
-          <input id="decrease" class="cart-edit__btn" type="submit" name="submit" value=" - ">
+          <input type="hidden" name="cart[quantity]" value="<%= c.quantity + 1 %>">
+          <input id="increase" class="cart-edit__btn" type="submit" name="submit" value=" + ">
         </form>
+
    <!-- END OF EDIT FORM (INCREASE/DECREASE QTY) -->
 
    <!-- DELETE FORM -->

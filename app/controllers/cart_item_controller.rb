@@ -5,7 +5,7 @@ class CartItemsController < ApplicationController
     @user = User.find(session[:user_id])
     @cart_products = CartItem.where(user_id: @user.id)
 
-    erb :'carts/cart'
+    erb :'cart_items/cart_items'
   end
 
   post '/add_product' do
