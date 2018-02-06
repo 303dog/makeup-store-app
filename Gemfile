@@ -18,8 +18,7 @@ gem 'rack-test'
 gem 'capybara'
 gem 'require_all'
 gem 'rack-flash3'
-gem 'pg', '1.0.0'
-
+gem 'pg'
 git_source(:github) {|repo_name| "https://github.com/#{repo_name}" }
 
 # Specify your gem's dependencies in makeup-store-app.gemspec

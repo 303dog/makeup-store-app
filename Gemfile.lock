@@ -107,7 +107,7 @@ DEPENDENCIES
   activerecord
   bcrypt
   capybara
-  pg (= 1.0.0)
+  pg
   pry
   rack-flash3
   rack-test
