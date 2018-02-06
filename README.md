@@ -29,7 +29,7 @@ Products can only be viewed individually when the user has logged in. The produc
 
 
 ## Cart
-A user only ever has one cart. Either it's the one they're currently shopping with or it's deleted when the order is submitted. The thinking here was that if this were a real site I would want to cart to persist until the user made an order, and once the order is created the order will track all the cart info. Deleting a product from the cart deletes the associated row from the "cart" table. Updating the product quantity will edit the quantity value in the associated cart row. In terms of security, the users can only access their own cart, of which there is only ever one. 
+A user only ever has one cart. Either it's the one they're currently shopping with or it's deleted when the order is submitted. The thinking here was that if this were a real site I would want to cart to persist until the user made an order, and once the order is created the order will track all the cart info. Deleting a product from the cart deletes the associated row from the "cart" table. Updating the product quantity will edit the quantity value in the associated cart row. In terms of security, the users can only access their own cart, of which there is only ever one.
 <img src="./public/img/Ruby-Makeup-Cart.png" />
 
 
@@ -38,4 +38,7 @@ Currently the cart goes directly to the order page and just let's the user know 
 <img src="./public/img/Ruby Makeup Order.png" />
 
 # Styling
-I could spend a LOT of time on this but I decided to keep it simple and not get too distracted by buttons and alignments. Most of the alignment is done with CSS Grid.
+I could spend a LOT of time on this but I decided to keep it simple and not get too distracted by buttons and alignments. Most of the alignment is done with CSS Grid. It still needs a little responsiveness love. <3
+
+# Check It Out
+Ruby Makeup is currently deployed at https://ruby-makeup-85046.herokuapp.com/products
