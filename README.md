@@ -7,9 +7,9 @@ To use this app, just clone, run `rake db:migrate`, `rake db:seed` for some prod
 The requirements of this app were to:
 - make a Sinatra app using ActiveRecord (check)
 - have multiple models (check)
-- have at least one has_many relationship (the cart has many products)
+- have at least one has_many relationship (the order has many products)
 - have users (sure do!)
-- ensure that the belongs_to resource has routes for Creating, Reading, Updating and Destroying (read, update, delete in the Cart and create Orders)
+- ensure that the belongs_to resource has routes for Creating, Reading, Updating and Destroying (read, update, delete in the CartItems and create Orders)
 
 # Extra info you might be interested in
 
@@ -19,7 +19,7 @@ The landing page is viewable logged in or out. If a user is not logged in, the "
 
 
 ## Authentication
-User's must provide a first name, email, and password to sign up. The password is stored encrypted. All fields on the sign up and log in page are required and the page will display an error if they are submitted empty. If the password is incorrect while loggin in, an error message will display on the login page. The page will redirect to the main products page after logging in and logging it. If you try to logout while not logged it, you'll be redirected to the login page (and stop trying to break my app because there's no logout button if you're not logged in.)
+User's must provide a first name, email, and password to sign up. The password is stored encrypted. All fields on the sign up and log in page are required and the page will display an error if they are submitted empty. If the password is incorrect while logging in, an error message will display on the login page. The page will redirect to the main products page after logging in and logging it. If you try to logout while not logged it, you'll be redirected to the login page (and stop trying to break my app because there's no logout button if you're not logged in.)
 <img src="./public/img/Ruby-Makeup-Error.png" />
 
 
@@ -28,8 +28,8 @@ Products can only be viewed individually when the user has logged in. The produc
 <img src="./public/img/Ruby Makeup Product.png" />
 
 
-## Cart
-A user only ever has one cart. Either it's the one they're currently shopping with or it's deleted when the order is submitted. The thinking here was that if this were a real site I would want to cart to persist until the user made an order, and once the order is created the order will track all the cart info. Deleting a product from the cart deletes the associated row from the "cart" table. Updating the product quantity will edit the quantity value in the associated cart row. In terms of security, the users can only access their own cart, of which there is only ever one.
+## Cart (a.k.a. CartItem)
+A user can view their cart but, in terms of the database, I am using a CartItem model as a join for products and users prior to an order. Once an order is created, the rows in the cart_items table that are associated to that user are deleted so that anytime a user is viewing their cart, the database is retrieving only products being currently shopped for by the user. This also means the cart data persists for the user even if they leave the store before making a purchase and then come back. Deleting a product from the cart deletes the associated row from the "cart_items" table. Updating the product quantity will edit the quantity value in the associated cart item row. In terms of security, the users can only access their own cart, of which there is only ever one. Prior to showing the cart, I check that the session user id matches the cart user id and reject any discrepancies.
 <img src="./public/img/Ruby-Makeup-Cart.png" />
 
 
@@ -38,7 +38,7 @@ Currently the cart goes directly to the order page and just let's the user know 
 <img src="./public/img/Ruby Makeup Order.png" />
 
 # Styling
-I could spend a LOT of time on this but I decided to keep it simple and not get too distracted by buttons and alignments. Most of the alignment is done with CSS Grid. It still needs a little responsiveness love. <3
+I could spend a LOT of time on this but I decided to keep it simple and not get too distracted by buttons and alignments. Most of the alignment is done with CSS Grid. It still needs a little responsiveness love too. <3
 
 # Check It Out
 Ruby Makeup is currently deployed at https://ruby-makeup-85046.herokuapp.com/products
