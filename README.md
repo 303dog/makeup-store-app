@@ -11,6 +11,9 @@ The requirements of this app were to:
 - have users (sure do!)
 - ensure that the belongs_to resource has routes for Creating, Reading, Updating and Destroying (read, update, delete in the CartItems and create Orders)
 
+## Check It Out
+Ruby Makeup is currently deployed at https://ruby-makeup-85046.herokuapp.com/products
+
 # Extra info you might be interested in
 
 ## Landing Page
@@ -40,5 +43,3 @@ Currently the cart goes directly to the order page and just let's the user know 
 # Styling
 I could spend a LOT of time on this but I decided to keep it simple and not get too distracted by buttons and alignments. Most of the alignment is done with CSS Grid. It still needs a little responsiveness love too. <3
 
-# Check It Out
-Ruby Makeup is currently deployed at https://ruby-makeup-85046.herokuapp.com/products
